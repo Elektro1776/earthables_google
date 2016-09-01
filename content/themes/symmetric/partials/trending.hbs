@@ -1,0 +1,59 @@
+<div class="col-xs-12">
+    <div class="visible-lg visible-md hidden-xs" style="margin-top: 0;">
+        <div id="ad_4" class="">
+            <a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
+        </div>
+    </div>
+</div>
+<div class="col-xs-12">
+    <div style="background-color: #129345;padding:5px;" class="top-spacer">
+        <h4 class="uppercase" style="color: white;margin-left: 5px;">
+            <i class="fa fa-line-chart" style="font-weight: bold;" aria-hidden="true"></i>
+            trending
+        </h4>
+    </div>
+
+    {{#get "posts" limit="3"}}
+    {{#foreach posts}}
+        <div class="col-xs-12 top-spacer" style="padding:0;">
+            <article class="{{post_class}}">
+                {{#if image}}
+                    <a href="{{url}}" class="thumb hover-effect">
+                        <img src="{{image}}">
+                    </a>
+                {{else}}
+                    {{content words="0"}}
+                {{/if}}
+
+                <h4 class="title"><a href="{{url}}">{{title}}</a></h4>
+                <div class="meta">
+                    {{#if tags}}
+                        <div class="tags">
+                            {{tags separator=""}}
+                        </div>
+                    {{/if}}
+
+                    <div class="fa-fa-circle">
+                        <p style="font-size: 14px;line-height: 22px;font-weight: 700;font-style: normal;letter-spacing: 0px;
+text-transform: none;">
+                            by <span class="bold">Earthables</span>
+                        </p>
+                    </div>
+
+                </div>
+
+            </article>
+        </div>
+
+        {{#if @last}}
+            <hr style="width: 100%;margin-top: 15px;">
+        {{/if}}
+
+    {{/foreach}}
+
+    {{/get}}
+    <button class="col-xs-12 btn moreTrendingButton btn btn-default">
+            More Trending Stories >
+    </button>
+    </div>
+</div>

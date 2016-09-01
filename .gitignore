@@ -34,4 +34,9 @@ jspm_packages
 .npm
 
 # Optional REPL history
+
 .node_repl_history
+
+
+#Config file for server start up
+config.js
