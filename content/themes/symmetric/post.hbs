@@ -1,0 +1,166 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+<!-- start: #single -->
+
+<div class="row">
+
+	<div class=" col-lg-8 col-lg-offset-2 col-xs-12 hidden-xs ">
+		<div class="panel panel-default top-ad" style="background-color:#D3D3D3; position: relative;min-height: 100px; margin-bottom: -25px; ">
+			<div class="panel-body" style="background-color:#D3D3D3">
+				<h4 class="text-center">Your Ad Here</h4>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+
+<main id="single" class="main " role="main">
+
+	{{#post}}
+	<!-- start: .meta -->
+	<div class="meta col-lg-12 col-md-12 col-xs-12">
+		<a class="local" href="{{url}}">
+
+			<h1 class="title " id="post_title" style="font-family:Playfair Display;">{{title}}</h1>
+		</a>
+
+			<div class="row meta-block">
+				<img class="hidden-xs" src="{{asset "/images/earth_210x.jpg"}}" alt="" style="display: inline-block;
+    width: 28px;
+    height: 28px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin-right: 10px"/>
+				<span class="author-meta"><span class="author_meta_by">By </span>{{author}}</span>
+				<a href="https://www.facebook.com/earthables">
+					<button id="follow-button" class="btn hidden-xs" style="margin-bottom:10px;">Follow</button>
+				</a>
+			<div class="pull-right">
+				<span class='hidden-xs'>Like Earthables on Facebook</span>
+				 	<div class="fb-like " data-href="https://www.facebook.com/earthables/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+			</div>
+
+              {{!--<a href="#comments" class="comments"><i class="fa fa-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{@blog.url}}{{url}">0</span></a>--}}
+            </div>
+
+
+    </div>
+    <div class="clear">
+
+    </div>
+		<div class="addthis_sharing_toolbox addthis_32x32_style">
+			{{!--<a class="addthis_button_preferred_2"></a><a class="addthis_button_preferred_5"></a><a class="addthis_button_preferred_6"></a><a class="addthis_button_preferred_3"></a><a class="addthis_button_compact"></a>--}}
+		</div>
+    {{#if image}}
+        {{^has tag="no cover"}}
+                <div class="main-image cover">
+									<img src="{{image}}"  height="400"  alt="" style="width:100%;"/>
+                    <div class="center grid-container">
+                        <div class="boxed cover" style="background: url({{image}});"></div>
+                        <div class="boxed overlay"></div>
+                    </div>
+                </div>
+
+        {{/has}}
+    {{/if}}
+
+
+
+    <div class="clear"></div>
+
+
+
+		<!-- start: .center -->
+		<div class="center content section grid-container {{#has tag="no cover"}}no-cover{{/has}}">
+
+				<!-- start: .content -->
+				<div class="row">
+
+					<article class="{{post_class}}">
+
+						{{#has tag="no cover"}}
+							<header>
+								<!-- start: .meta -->
+								<div class="meta">
+									{{#if tags}}
+										<div class="tags">
+											{{tags separator=""}}
+										</div>
+									{{/if}}
+									<time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
+									<a href="#comments" class="comments alignright"><i class="fa fa-comment"></i> <span class="disqus-comment-count" data-disqus-url="{{@blog.url}}{{url}}">0</span></a>
+								</div>
+								<!-- end: .meta -->
+								<div class="clear"></div>
+								<h2 class="title">{{title}}</h2>
+								<div class="post-format">
+									{{#if image}}
+										<div class="main-image"><img src="{{image}}"></div>
+									{{/if}}
+								</div>
+
+							</header>
+						{{/has}}
+
+						<section class="post-content ">
+
+							<section class="widget widget_text col-lg-5 col-md-6 col-sm-8 xs-6">
+						<div id="ad_1" class="">
+							<a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
+						</div>
+					</section>
+					<div class=" post_subscribe_form col-lg-7 col-md-6 col-sm-10"style="background-image: linear-gradient(rgb(130, 179, 72), rgb(18, 147, 69));">
+						{{subscribe_form placeholder="Your Email Here"}}
+					</div>
+				{{#if error}}
+	    <p class="main-error">{{{error.message}}}</p>
+				{{/if}}
+									<div class="fade-out">
+
+								        	<div class="text">{{content}}</div>
+														<p class="read-more"><a class="btn" href="#">Read More</a></p>
+
+							    </div>
+
+						</section>
+					</article>
+				</div>
+        </div>
+
+
+				<!-- end: .content -->
+
+    {{/post}}
+		<!-- end: .center -->
+		<section class="widget widget_text post_widget">
+			<div id="ad_4" class="">
+				<a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
+			</div>
+		</section>
+</main>
+<!-- end: #single -->
+</div>
+
+<div class="row">
+	{{>  "trending-sidebar" }}
+
+	<div class="col-md-8">
+		<div class="post-ad-wrapper visible-lg visible-md hidden-xs" style="margin-top: 0;">
+				<div id="ad_1" class="">
+						<a href="" class="ads" target="_blank"><img src="{{asset "images/ad_banner728x90.jpg"}}" ></a>
+				</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-8 col-sm-8">
+		<section class="related grid-container grid-parent">
+			<h3 class="relatedStories">RELATED STORIES</h3>
+			{{> "related_section"}}
+		</section>
+	</div>
+</div>

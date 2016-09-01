@@ -1,0 +1,36 @@
+
+{{#foreach related_section columns="1"}}
+
+<article class=" {{post_class}} {{#if @rowStart}} col-lg-12 col-md-12 col-sm-12 col-xs-12{{/if}} {{#if @rowEnd}} col-lg-12 col-md-12 col-xs-12{{/if}}" style=" padding-top:50px;margin-bottom:10px;">
+      {{#if image}}
+        <a href="{{url}}" class=" local thumb hover-effect">
+          <img src="{{image}}" class="" style="">
+        </a>
+        <section class="widget widget_text col-lg-10 col-lg-offset-3 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2">
+          <div id="ad_4" class="">
+            <a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
+          </div>
+        </section>
+      {{else}}
+        {{content words="0"}}
+      {{/if}}
+    <h2 class="relatedTitle "><a href="{{url}}">{{title}}</a></h2>
+  <div class="meta">
+
+    <span class="author-meta"><span class="author_meta_by">By </span>{{author}}</span>
+        <time datetime="{{date format="YYYY-MM-DD"}}">
+          <i class="fa fa-clock-o"></i> {{date published_at timeago="true"}}
+        </time>
+    </div>
+        <div class="row fade-out" style="margin-left:0;">
+            <div class="text">{{content}}</div>
+                <p class="read-more"><a class="btn" href="#">Read More</a></p>
+              <div class="clear"></div>
+        </div>
+        <section class="widget widget_text post_widget">
+          <div id="ad_4" class="">
+            <a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
+          </div>
+        </section>
+  </article>
+  {{/foreach}}

@@ -1,0 +1,36 @@
+<div class="hidden-xs col-lg-4 col-sm-4" style="float:right;">
+	<div class="ad-wrapper trending">
+		<div id="ad_1" >
+			<a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
+		</div>
+	</div>
+	<h3 class="trending_title"><i class="fa fa-line-chart" aria-hidden="true"></i> TRENDING</h3>
+	{{#get "posts" limit="6"  include="author"}}
+	{{#foreach posts columns="1"}}
+			<article class=" {{post_class}} {{#if @rowStart}} col-lg-12 col-md-12 col-sm-12 col-xs-12{{/if}} {{#if @rowEnd}} col-md-12 col-xs-12{{/if}}" style=" margin-bottom:10px;">
+				{{#if image}}
+					<a href="{{url}}" class="thumb hover-effect">
+						<img src="{{image}}" style="">
+					</a>
+				{{else}}
+					{{content words="0"}}
+				{{/if}}
+			<h4 class="relatedTitle"><a href="{{url}}">{{title}}</a></h4>
+			<div class="meta">
+				{{#if tags}}
+				<div class="tags">
+					{{tags separator=""}}
+				</div>
+				{{/if}}
+				<div>
+				{{#if author}}
+				<span class="relatedAuthor"><span class="author_by">By</span> {{author.name}}</span>
+				{{/if}}
+
+				</div>
+
+					</div>
+		</article>
+		{{/foreach}}
+	{{/get}}
+</div>

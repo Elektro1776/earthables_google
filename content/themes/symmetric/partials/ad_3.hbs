@@ -1,0 +1,49 @@
+<aside id="featured " class="featured hide-on-mobile grid-25 ad_3 tablet-grid-50">
+
+	{{#is "author"}}
+		{{#author}}
+			<div class="author-info item">
+				<h2 class="title">{{name}}</h2>
+				<p>{{bio}}</p>
+				<div class="social">
+
+					{{#if location}}
+						<a href="javascript:void(0)" class="button location tooltip" title="Location: {{location}}"><i class="fa fa-map-marker"></i> Location</a>
+					{{/if}}
+
+					{{#if website}}
+						<a href="{{website}}" class="button website tooltip" target="_blank" title="Website: {{website}}"><i class="fa fa-external-link"></i> Website</a>
+					{{/if}}
+
+				</div>
+			</div>
+		{{/author}}
+	{{/is}}
+
+	<!-- start: .item
+	<div class="item featured-top">
+		<h3 class="title bordered">TECHNOLOGY</h3>
+		<div class="box">
+
+		</div>
+	</div>
+	<!-- end: .item -->
+
+	<!-- start: .item
+	<div class="item featured-bottom">
+		<h3 class="title bordered">NATURE</h3>
+		<div class="box">
+
+		</div>
+	</div>
+	<!-- end: .item -->
+
+	<!-- start: .item -->
+	<div id="ad_3" class="item">
+
+		<a href="http://themeforest.net/user/estudiopatagon/portfolio?ref=EstudioPatagon" class="ads" target="_blank">
+			<img src="{{asset "images/ad-250x300.jpg"}}" class="img-ad"></a>
+	</div>
+	<!-- end: .item -->
+
+</aside>

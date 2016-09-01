@@ -1,0 +1,4 @@
+{{#get "posts"  filter="id:-{{post.id}}" limit="6" page="2" include="author"}}
+  {{> "related_posts"  related_section=posts}}
+
+{{/get}}
