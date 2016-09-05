@@ -40,3 +40,9 @@ jspm_packages
 
 #Config file for server start up
 config.js
+
+#Core folder 
+core/**
+
+#DATABASE IMAGES 
+content/images
