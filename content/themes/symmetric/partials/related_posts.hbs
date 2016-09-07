@@ -1,36 +1,97 @@
+{{#foreach posts}}
+<div class="meta col-lg-12 col-md-12 col-xs-12">
+  <a href="{{url}}" class="local">
+  <h1 class="title" id="post_title" style="font-family:Playfair Display;">{{title}}</h1>
+  </a>
+<div class="row">
+              {{#if tags}}
+            <div class="tags">
+                  {{tags separator=""}}
+            </div>
+              {{/if}}
+            <time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
+            <div class="fb-like " data-href="https://www.facebook.com/earthables/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+      </div>
+  </div>
+  <div class="clear">
+</div>
+  {{#if image}}
+      {{^has tag="no cover"}}
+              <div class="main-image cover">
+                <img src="{{image}}"  style="width:100%" height="400"  alt="" />
+                  <div class="center grid-container">
+                      <div class="boxed cover" style="background: url({{image}});"></div>
+                      <div class="boxed overlay"></div>
+                  </div>
+              </div>
+          {{/has}}
+  {{/if}}
+  <div class="clear"></div>
+    <!-- start: .center -->
+  <div class="center content section grid-container {{#has tag="no cover"}}no-cover{{/has}}">
 
-{{#foreach related_section columns="1"}}
+      <!-- start: .content -->
+      <div class="row">
+        <article class="{{post_class}}">
+          {{#has tag="no cover"}}
+            <header>
+                <!-- start: .meta -->
+                <div class="meta" style="margin-top:50px;">
+                  {{#if tags}}
+                    <div class="tags">
+                      {{tags separator=""}}
+                    </div>
+                  {{/if}}
+                  <time datetime="{{date format="YYYY-MM-DD"}}"><i class="fa fa-clock-o"></i> {{date}}</time>
+                </div>
+                <!-- end: .meta -->
+                <div class="clear"></div>
+                <h2 class="title">{{title}}</h2>
+                <div class="post-format">
+                  {{#if image}}
+                    <div class="main-image"><img src="{{image}}"></div>
+                  {{/if}}
+                </div>
 
-<article class=" {{post_class}} {{#if @rowStart}} col-lg-12 col-md-12 col-sm-12 col-xs-12{{/if}} {{#if @rowEnd}} col-lg-12 col-md-12 col-xs-12{{/if}}" style=" padding-top:50px;margin-bottom:10px;">
-      {{#if image}}
-        <a href="{{url}}" class=" local thumb hover-effect">
-          <img src="{{image}}" class="" style="">
-        </a>
-        <section class="widget widget_text col-lg-10 col-lg-offset-3 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2">
-          <div id="ad_4" class="">
-            <a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
-          </div>
-        </section>
-      {{else}}
-        {{content words="0"}}
-      {{/if}}
-    <h2 class="relatedTitle "><a href="{{url}}">{{title}}</a></h2>
-  <div class="meta">
-
-    <span class="author-meta"><span class="author_meta_by">By </span>{{author}}</span>
-        <time datetime="{{date format="YYYY-MM-DD"}}">
-          <i class="fa fa-clock-o"></i> {{date published_at timeago="true"}}
-        </time>
+            </header>
+          {{/has}}
+          <section class="post-content col-lg-12 col-md-8 col-sm-8 col-xs-12">
+            <div id="ad_1" class="">
+              <!--TBN BTF 300x250 pos 3 STARTS-->
+    <div id="tbn-2812487e-d50e-b016-ee1d-88e6703d8f61">
+         <script type="text/javascript">window.$tbn = window.$tbn || {"d":function(){}}; $tbn.d("2812487e-d50e-b016-ee1d-88e6703d8f61");</script>
     </div>
-        <div class="row fade-out" style="margin-left:0;">
-            <div class="text">{{content}}</div>
-                <p class="read-more"><a class="btn" href="#">Read More</a></p>
-              <div class="clear"></div>
-        </div>
-        <section class="widget widget_text post_widget">
-          <div id="ad_4" class="">
-            <a href="" class="ads" target="_blank"><img src="{{asset "images/ad_2-300x250.png"}}" ></a>
-          </div>
-        </section>
-  </article>
+  <!--TBN BTF 300x250 pos 3 ENDS-->
+            </div>
+            <div class=" post_subscribe_form col-lg-7 col-md-6 col-sm-10">
+                {{subscribe_form placeholder="Your Email Here"}}
+              </div>
+
+            <!--<div class="row">
+              <div class="addthis_sharing_toolbox col-lg-5 " addthis:url="{{url}}" addthis:title="{{title}}" addthis:description="{{meta_description}}" data-url={{url}} data-title="{{title}}" data-description="{{meta_description}}"style="float:right;"></div>
+            </div>-->
+{{#if error}}
+  <p class="main-error">{{{error.message}}}</p>
+{{/if}}
+              <div class="fade-out">
+                  <div class="text" >{{excerpt characters="340"}}</div>
+                    <p class="read-more"><a class="btn" href="{{url}}">Read More</a></p>
+              </div>
+              <section class="widget widget_text post_widget">
+                <div id="ad_4" class="">
+                  <!--TBN BTF 300x250 pos 4 STARTS-->
+            <div id="tbn-54cd179d-9eda-5c38-bd63-71e0d27d1613">
+                 <script type="text/javascript">window.$tbn = window.$tbn || {"d":function(){}}; $tbn.d("54cd179d-9eda-5c38-bd63-71e0d27d1613");</script>
+            </div>
+          <!--TBN BTF 300x250 pos 4 ENDS-->
+                </div>
+              </section>
+            </section>
+        </article>
+      </div>
+      </div>
+      <div class="clear"></div>
+
+
+  <div class="clear"></div>
   {{/foreach}}

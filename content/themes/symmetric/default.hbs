@@ -20,7 +20,7 @@
 {{! Styles'n'Scripts }}
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-<link rel="shortcut icon" href="{{asset "images/earth_favicon16X16.ico"}}">
+<link rel="shortcut icon" href="{{asset 'images/earth_favicon16X16.ico'}}">
 <link rel="stylesheet" type="text/css" href="{{asset "css/animate.min.css"}}">
 <!-- <link rel="stylesheet" type="text/css" href="{{asset "css/grids.css"}}"> -->
 <link rel="stylesheet" type="text/css" href="{{asset "css/bootstrap.min.css"}}">
@@ -44,7 +44,7 @@
 <![endif]-->
 {{ghost_head}}
 <script type="text/javascript" src="{{@blog.url}}/config.js"></script>
-<script src="https://use.fontawesome.com/568e40764f.js"></script>
+<script async src="https://use.fontawesome.com/568e40764f.js"></script>
 <script type='text/javascript'>
 var googletag = googletag || {};
 googletag.cmd = googletag.cmd || [];
@@ -59,8 +59,9 @@ var node = document.getElementsByTagName('script')[0];
 node.parentNode.insertBefore(gads, node);
 })();
 </script>
+<script data-cfasync="true" type="text/javascript" src="//delivery.thebloggernetwork.com/4fff3abc-d46f-409d-97d4-82025516b3b4.js"></script>
 </head>
-<body class="enable_animations  {{#if @blog.cover}}cover{{/if}} {{body_class}}" {{#if @blog.cover}}style="background: url({{@blog.cover}}) no-repeat center center fixed;"{{/if}}>
+<body class="enable_animations  {{#if @blog.cover}}cover{{/if}} {{body_class}}" {{#if @blog.cover}}style="background: url({{@blog.cover}}) no-repeat center center fixed;"{{/if}} style="overflow:hidden;">
 
 	<!-- start: #wrapper -->
 
@@ -70,26 +71,35 @@ node.parentNode.insertBefore(gads, node);
 
 </div>
 <div class="clear"></div>
-	<section class="container">
-
+	<section class="container" style="padding-right:1px; padding-left:1px;">
+		<div class="row">
+			<div class="col-lg-7 col-lg-offset-3 ">
+				<!--TBN ATF 728x90 pos 1 STARTS-->
+		<div id="tbn-95225cb8-4577-5ac4-d242-a41ee97ee484">
+			<!-- This is the 728 ad code-->
+			<script type="text/javascript">window.$tbn = window.$tbn || {"d":function(){}}; $tbn.d("95225cb8-4577-5ac4-d242-a41ee97ee484");</script>
+		</div>
+	<!--TBN ATF 728x90 pos 1 ENDS-->
+			</div>
+		</div>
     	{{{body}}}
 
 	</section>
 
-			<div class="row">
+
 				{{> footer}}
-			</div>
+
 
 
 
     <!-- end: #wrapper -->
 
-    {{ghost_foot}}
-	<script type="text/javascript">
-	if (typeof jQuery == 'undefined') {
-		document.write('<script type="text/javascript" src="{{asset "js/jquery-1.11.3.min.js"}}"></'+'script>');
-	}
-	</script>
+		{{ghost_foot}}
+		<script type="text/javascript">
+		if (typeof jQuery == 'undefined') {
+			document.write('<script type="text/javascript" src="{{asset "js/jquery-1.11.3.min.js"}}"></'+'script>');
+		}
+		</script>
 
 	<script type="text/javascript" src="{{asset "js/jquery-migrate-1.2.1.js"}}"></script>
 
@@ -112,14 +122,25 @@ node.parentNode.insertBefore(gads, node);
 		<script type="text/javascript" src="{{asset "js/bootstrap.min.js"}}"></script>
 		<script type="text/javascript" src="{{asset "js/moment.min.js"}}"></script>
 		<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-81613698-1', 'auto');
-  ga('send', 'pageview');
+		  ga('create', 'UA-69160177-1', 'auto');
+		  ga('send', 'pageview');
 
+		</script>
+<script type="text/javascript">
+(function() {
+var referer="";try{if(referer=document.referrer,"undefined"==typeof referer)throw"undefined"}catch(exception){referer=document.location.href,(""==referer||"undefined"==typeof referer)&&(referer=document.URL)}referer=referer.substr(0,700);
+var rcel = document.createElement("script");
+rcel.id = 'rc_' + Math.floor(Math.random() * 1000);
+rcel.type = 'text/javascript';
+rcel.src = "http://trends.revcontent.com/serve.js.php?w=392&t="+rcel.id+"&c="+(new Date()).getTime()+"&width="+(window.outerWidth || document.documentElement.clientWidth)+"&referer="+referer;
+rcel.async = true;
+var rcds = document.getElementById("rcjsload_8973ba"); rcds.appendChild(rcel);
+})();
 </script>
 
 <div id="fb-root"></div>
@@ -131,9 +152,8 @@ node.parentNode.insertBefore(gads, node);
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-		<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57981f3cbe60518f"></script>
-
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57b10ced8967c407"></script>
 	<!--[if !IE]><!-->
 	<script type="text/javascript" src="{{asset "js/wow.min.js"}}"></script>
 	<script type="text/javascript">
@@ -160,5 +180,6 @@ node.parentNode.insertBefore(gads, node);
 	<script>
     var max_pages = parseInt('{{pagination.pages}}');
     </script>
+
 </body>
 </html>

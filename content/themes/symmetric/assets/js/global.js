@@ -62,11 +62,11 @@
         // FADE-OUT READ MORE button
         var $el, $p, $ps, $up, totalHeight, articleHeight;
 
-        $(" .fade-out .btn")
+        $(" .fade-1 .btn")
             .click(function() {
 
               totalHeight = 0;
-              articleHeight = $('.fade-out').children().not('.read-more');
+              articleHeight = $('.fade-1').children().not('.read-more');
               $el = $(this);
               console.log($el);
               $p = $el.parent();
@@ -75,13 +75,15 @@
               console.log($up);
               $ps = $up.find(articleHeight);
 
-              // measure how tall inside should be by adding together heights of
+              // measure how tall inside should be by adding together heights
+
               // all inside paragraphs (except read-more paragraph)
               $ps.each(function() { totalHeight += $(this).outerHeight(); });
               // console.log($(this).outerHeight());
               // console.log($ps);
               $up.css({
-                   // Set height to prevent instant jumpdown when max height is
+                   // Set height to prevent instant jumpdown when max height
+                   // is
                    // removed
                    "height" : $up.height(),
                    "max-height" : 9999
@@ -95,6 +97,7 @@
               return false;
 
             });
+
         // END OF READ MORE BUTTON FADE OUT
         // INFINITE SCROLL
         // How we display the new posts  once the new posts are recieved
@@ -105,11 +108,11 @@
 
           var postInfo =
               '<article class="post col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:10px;">\
-                          <a href="' +
+              <h1 class="title"><a href="' +
+              postData.url + '">' + postData.title + '</a></h1>\
+              <a href="' +
               postData.url + '" class="local thumb hover-effect"><img src="' +
               postData.image + '"></a>\
-              <h2 class="title"><a href="' +
-              postData.url + '">' + postData.title + '</a></h2>\
               <div class="meta">\
               <div class="tags"></div>\
               <span class="author-meta"><span class="author_meta_by">By </span>' +
@@ -137,12 +140,10 @@
                 if ($(window).scrollTop() + $(window).height() ==
                         $(document).height() &&
                     $('.post').length <= 20) {
-                  $.getJSON(ghost.url.api('posts',
-                                          {
-                                            limit : 4,
-                                            filter : "id:-posts.id",
-                                            include : "author"
-                                          }))
+                  $.getJSON(
+                       ghost.url.api(
+                           'posts',
+                           {limit : 4, filter : -"id", include : "author"}))
                       .done(function(data) {
                         // console.log(data);
                         $.each(data.posts,
@@ -564,7 +565,8 @@
             }
           }*/
 
-        $(window).smartresize(function(e) { wrapper.slick('setPosition'); });
+        //  $(window).smartresize(function(e) { wrapper.slick('setPosition');
+        //  });
       });
 
   /*  var top =

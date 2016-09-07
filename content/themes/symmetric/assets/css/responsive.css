@@ -49,8 +49,26 @@
 @media screen and (max-width:400px){
 .mainImg{padding-right:15px!important;}
  .earth_text_sprite{margin-left:45px!important;}
+#atstbx .at-share-btn-elements .at-svc-email{display:none!important;}
+#atstbx .at-share-btn-elements .at-svc-twitter{display:none!important;}
+#atstbx .at-share-btn-elements .at-svc-compact{display:none!important;}
+#atstbx .at-share-btn-elements .at-svc-pinterest_share{display:none!important;}
+#atstbx .at-share-btn-elements .at-svc-compact{display:none!important;}
+#atstbx .at-share-btn-elements .at-icon-wrapper {margin-right:30px;height:32px;}
+#atstbx2 .at-share-btn-elements .at-svc-facebook {
+	width: 144px !important;
+	position: relative;
+}
+.at-resp-share-element.at-mobile .at-share-btn{margin-right:0px!important;padding:0!important;}
 
- 	#single .meta h1.title {
+#atstbx .at-share-btn-elements .at-icon-wrapper .at-icon-facebook {
+	height:36px!important;
+	width:36px!important;
+}
+.at-share-btn-elements .at-svc-facebook:after{
+	font-size:15px!important;
+}
+#single .meta h1.title {
  		  font-size: 24px;
  		  margin-bottom: 30px;
  }

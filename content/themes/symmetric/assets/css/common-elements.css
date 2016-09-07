@@ -307,7 +307,7 @@ section.widget_ep_social div.icons a.rss{ background: #F7B454; }
 }
 div.text{ font-size: 16px;line-height: 22px; }
 div.text iframe{ margin-bottom: 20px; }
-iframe{width:100%}
+/*iframe{width:100%}*/
 div.text hr{ margin: 0 0 20px; }
 div.ep-map img, div#map_canvas img{ max-width: none !important; height: inherit; }
 div.text img{
