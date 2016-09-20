@@ -21,7 +21,7 @@
 												<a href="{{url}}" class="thumb ">
 														<div class="col-lg-12 col-md-12 col-sm-12 featured-img-size"
 																 style="background:url({{image}}); background-size:cover; background-repeat: no-repeat; position:static;">
-																<div style="position: relative; top: 70%;">
+																<div style="position: relative; top: 50%;">
 																		<span id="overlay_text" class="" style="position: relative; top: 220px;right:600px; z-index: 3;">
 																				<h1 class="title" style="line-height:1.2;padding:2px;"><a class="no_hover_effect" href="{{url}}">{{{title}}}</a></h1>
 																		</span>
@@ -52,15 +52,10 @@
 								</div>
 						</div>
 					<div class="fb-page top-spacer" data-href="https://www.facebook.com/earthables/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/earthables/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/earthables/">Earthables</a></blockquote></div>
-										<!--	<div class="col-lg-6 col-md-6  ">
-													<span id="overlay_text" class="" style="position: relative; top: 220px;right:600px; z-index: 3;">
-															<h1 class="title" style="line-height:36px;"><a href="{{url}}"  style="color:#fff; ">{{{title}}}</a></h1>
-													</span>
-											</div>-->
-
+					{{> earth_print}}
 
 				<div class="col-md-8 " style="margin-top:50px;">
-					<div id="rcjsload_8973ba"></div>
+
 							{{else}}
 				<article class=" {{post_class}} {{#if @rowStart}} {{/if}} {{#if @rowEnd}}  {{/if}}" style="height:auto;margin-top:50px;">
 					<header>

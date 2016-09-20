@@ -68,11 +68,11 @@
               totalHeight = 0;
               articleHeight = $('.fade-1').children().not('.read-more');
               $el = $(this);
-              console.log($el);
+              // console.log($el);
               $p = $el.parent();
-              console.log($p);
+              // console.log($p);
               $up = $p.parent();
-              console.log($up);
+              // console.log($up);
               $ps = $up.find(articleHeight);
 
               // measure how tall inside should be by adding together heights
@@ -104,51 +104,78 @@
 
         function insertPost(postData) {
           var timeago = moment(postData.published_at).startOf('hour').fromNow();
-          // console.log(timeago);
-
+          // start the inserting of the html
           var postInfo =
-              '<article class="post col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:10px;">\
-              <h1 class="title"><a href="' +
-              postData.url + '">' + postData.title + '</a></h1>\
-              <a href="' +
-              postData.url + '" class="local thumb hover-effect"><img src="' +
-              postData.image + '"></a>\
-              <div class="meta">\
-              <div class="tags"></div>\
-              <span class="author-meta"><span class="author_meta_by">By </span>' +
-              postData.author.name + '</span>\
-              <timeclass="post-date" datetime="' +
-              timeago + '">  <i class="fa fa-clock-o"></i>' + timeago +
-              '</time>\
-              <div class="row fade-out" style=margin-left:0;>\
-              <div class="text">' +
+              '<div class="meta col-lg-12 col-md-12 col-xs-12">\
+            <a class="local" href="' +
+              postData.url +
+              '"><h1 class="title" id="post_title" style="font-family:Playfair Display;">' +
+              postData.title + '</h1></a>\
+              <div class="fb-like" data-href="https://www.facebook.com/HeartCenteredRebalancing" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>\
+                  <div class="row">';
+
+          postInfo += ' <time class="post-date" datetime="' + timeago +
+                      '">  <i class="fa fa-clock-o"></i>' + timeago + '</time>\
+                                  </div>\
+                                  </div>';
+
+          postInfo += '<div class="main-image cover">\
+                          <img src="' +
+                      postData.image +
+                      '" style="width:100%" height="400" alt=""/>\
+                            <div class="center grid-container">\
+                              <div class="boxed cover" style="background: url("' +
+                      postData.url + '");"></div>\
+                              <div class="boxed overlay"></div>\
+                            </div>\
+                      </div>\
+                      <div class="center content section ">\
+                        <article class="post">\
+                          <section class="post-content" style="margin-bottom:50px;">\
+                          <div class="ad-container col-lg-4 col-xs-12">\
+                          <iframe id="e1d77e5153" name="e1d77e5153" src="//us-ads.openx.net/w/1.0/afr?auid=538147715&cb=INSERT_RANDOM_NUMBER_HERE" frameBorder="0" frameSpacing="0" scrolling="no" width="300" height="250"><a href="//us-ads.openx.net/w/1.0/rc?cs=e1d77e5153&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="//us-ads.openx.net/w/1.0/ai?auid=538147715&cs=e1d77e5153&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe>\
+                          </div>\
+                          '; // Ad
+          // should
+          // go
+          // here
+
+          postInfo +=
+              '<div class="row fade-out" style=margin-left:0;>\
+            <div class="text">' +
               postData.html +
-              '</div><p class="read-more"><a class="btn" href="#">"Read More"</a></p>\
-              <div class="clear"</div\
-              </div>\
-              </article>\
+              '</div><p class="read-more"><a class="btn" href="#">Read More</a></p>\
+            <div class="clear"></div>\
+            </div>\
+                          </section>\
+                        </article>\
+                      </div>\
                           ';
-          // Where we drop our new post data onto the page
-          $('article').last().after(postInfo);
+          // Append the html to the content of the blog
+          //$('article').last().after(postInfo);
+          $(postInfo).appendTo(".loaded_content");
+          // incriment next page so it will get the next page of posts if hit
+          // again.
         }
         // Are we on the post page? if so scroll the bitch
         // TODO figure out how to stop the infinte scroll after 20 articles are
         // loaded
+        var trueContent = false;
         if ($('body').hasClass('post-template')) {
+          var page = 3;
           $(window)
               .scroll(function() {
-                if ($(window).scrollTop() + $(window).height() ==
-                        $(document).height() &&
-                    $('.post').length <= 20) {
-                  $.getJSON(
-                       ghost.url.api(
-                           'posts',
-                           {limit : 4, filter : -"id", include : "author"}))
+                if ($window.scrollTop() + $window.height() >=
+                        parseInt($(document).height()) &&
+                    trueContent == false) {
+                  ++page;
+                  $.getJSON(ghost.url.api(
+                                'posts',
+                                {limit : 4, page : page, include : "author"}))
                       .done(function(data) {
-                        // console.log(data);
                         $.each(data.posts,
                                function(i, post) { insertPost(post); });
-                        console.log('posts', data.posts);
+                        // console.log('posts', data.posts);
                       })
                       .fail(function(err) { console.log(err); });
                 }

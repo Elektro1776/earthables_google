@@ -43,6 +43,10 @@
 @media screen and (max-width:480px;) and (min-width:320px) {
 .earth_text_sprite{margin-left:90px!important;}
 }
+#atstbx2 .at-share-btn-elements .at-svc-facebook {
+    width: 175px !important;
+    position: relative;
+}
 @media screen and (max-width:320px) {
 .earth_text_sprite{margin-left:50px!important;}
 }
@@ -359,6 +363,10 @@ h1.title{
 			body.post-template div.meta{margin-top: 0;}
 
 			.col-xs-6{width:46%;}
+			#atstbx2 .at-share-btn-elements .at-svc-facebook {
+    width: 175px !important;
+    position: relative;
+}
 }
 
 /* Portrait */
@@ -390,10 +398,14 @@ h1.title{
     */div.text p{margin-right:0 !important;}
 			#ad_1>img{display:none;}
 			#ad_3 img{display:none}
-			#post_title{font-size:24px;line-height:32px;}
+			#post_title{font-size:24px!important;line-height:32px!important;}
 			#header{ padding-top: 12px; height:80px; }
-			.main{margin-top:100px;}
+		
 				.col-xs-6{width:50%;}
+				#atstbx2 .at-share-btn-elements .at-svc-facebook {
+    width: 175px !important;
+    position: relative;
+}
 }
 
 /* Portrait */
@@ -525,6 +537,10 @@ and (orientation: portrait) {
 		#header{ padding-top: 12px; height:20px; }
 
 		.col-xs-6{ width:48%;}
+		#atstbx2 .at-share-btn-elements .at-svc-facebook {
+    width: 175px !important;
+    position: relative;
+}
 }
 
 /* Portrait */
