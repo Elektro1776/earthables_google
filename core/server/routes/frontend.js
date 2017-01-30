@@ -39,7 +39,8 @@ frontendRoutes = function frontendRoutes() {
             app.setupRoutes(router);
         }
     });
-
+    //Search
+    router.get('/search', frontend.search);
     // Default
     router.get('*', frontend.single);
 

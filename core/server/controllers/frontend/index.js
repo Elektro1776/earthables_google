@@ -13,7 +13,7 @@ var api         = require('../../api'),
     postLookup     = require('./post-lookup'),
     setResponseContext = require('./context'),
     setRequestIsSecure = require('./secure'),
-
+    db          = require('../../data/db'),
     frontendControllers;
 
 /*
@@ -33,6 +33,34 @@ function renderPost(req, res) {
 }
 
 frontendControllers = {
+  search: function trending(req,res,next) {
+var q = req.query.q;
+//console.log(db.knex('posts'));
+  if (q) {
+      db.knex('posts')
+      .whereRaw('to_tsvector(title) @@ plainto_tsquery(?)',[q])
+      .andWhere('status', '=', "published")
+      .limit(50)
+       .then(function (results) {
+         var slugURL;
+           for (var i=0; i<results.length; i++){
+               //console.log(results[i].slug+'Im The Loop Results');
+               slugURL = results[i].slug;
+    }
+           var out = {
+           posts: results,
+           query: q,
+           count: results.length,
+           url: 'http://dev.groupxondemand.com/'+slugURL
+           };
+        //console.log(out.url+ 'Im Results!');
+  res.render('search',out);
+}).catch(function(err){
+  //console.log(err);
+  res.render('search');
+});
+}
+},
     preview: function preview(req, res, next) {
         var params = {
                 uuid: req.params.uuid,

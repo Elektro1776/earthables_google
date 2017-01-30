@@ -11,16 +11,17 @@
 {{! Page Meta }}
 <title>{{meta_title}}</title>
 <meta name="description" content="{{meta_description}}" />
-
+<meta property="fb:app_id" content="918400028270230" />
 {{! Mobile Support }}
 <meta name="HandheldFriendly" content="True" />
 <meta name="MobileOptimized" content="320" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+
 {{! Styles'n'Scripts }}
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-<link rel="shortcut icon" href="{{asset "images/earth_favicon16X16.ico"}}">
+<link rel="shortcut icon" href="{{asset 'images/earth_favicon16X16.ico'}}">
 <link rel="stylesheet" type="text/css" href="{{asset "css/animate.min.css"}}">
 <!-- <link rel="stylesheet" type="text/css" href="{{asset "css/grids.css"}}"> -->
 <link rel="stylesheet" type="text/css" href="{{asset "css/bootstrap.min.css"}}">
@@ -43,97 +44,234 @@
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 {{ghost_head}}
-<script type="text/javascript" src="{{@blog.url}}/config.js"></script>
-<script src="https://use.fontawesome.com/568e40764f.js"></script>
-<script type='text/javascript'>
-var googletag = googletag || {};
-googletag.cmd = googletag.cmd || [];
-(function() {
-var gads = document.createElement('script');
-gads.async = true;
-gads.type = 'text/javascript';
-var useSSL = 'https:' == document.location.protocol;
-gads.src = (useSSL ? 'https:' : 'http:') +
-'//www.googletagservices.com/tag/js/gpt.js';
-var node = document.getElementsByTagName('script')[0];
-node.parentNode.insertBefore(gads, node);
-})();
+<script type="text/javascript">
+if (typeof jQuery == 'undefined') {
+	document.write('<script type="text/javascript" src="{{asset "js/jquery-1.11.3.min.js"}}"></'+'script>');
+}
 </script>
+  <script type="text/javascript" src="{{asset "built/global.min.js"}}"></script>
+	<!-- Go to www.addthis.com/dashboard to customize your tools -->
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57b10ced8967c407"></script>
+
+<script type="text/javascript" src="{{@blog.url}}/config.js"></script>
+<script async src="https://use.fontawesome.com/568e40764f.js"></script>
+<div id="fb-root"></div>
+
+<script data-cfasync="true" type="text/javascript" src="//delivery.thebloggernetwork.com/4fff3abc-d46f-409d-97d4-82025516b3b4.js"></script>
+
 </head>
-<body class="enable_animations  {{#if @blog.cover}}cover{{/if}} {{body_class}}" {{#if @blog.cover}}style="background: url({{@blog.cover}}) no-repeat center center fixed;"{{/if}}>
+<body class="enable_animations  {{#if @blog.cover}}cover{{/if}} {{body_class}}" {{#if @blog.cover}}style="background: url({{@blog.cover}}) no-repeat center center fixed;"{{/if}} style="overflow:hidden;">
 
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '918400028270230',
+				xfbml      : true,
+				version    : 'v2.7'
+			});
+		};
+
+		(function(d, s, id){
+			 var js, fjs = d.getElementsByTagName(s)[0];
+			 if (d.getElementById(id)) {return;}
+			 js = d.createElement(s); js.id = id;
+			 js.src = "//connect.facebook.net/en_US/sdk.js";
+			 fjs.parentNode.insertBefore(js, fjs);
+		 }(document, 'script', 'facebook-jssdk'));
+	</script>
 	<!-- start: #wrapper -->
-
 <div class="container">
 
 		{{> header}}
 
+		<div class="searchbar">
+			<form class="" action="/search" method="get">
+				<input type="text" name="q" value="{{query}}" placeholder="Search"style="background-color:#222;color:#fff" >
+			</form>
+		</div>
+
+
+
 </div>
 <div class="clear"></div>
-	<section class="container">
-
+	<section class="container" style="padding-right:1px; padding-left:1px;">
+		<div class="row" style="padding-top:15px;">
+			<div class="col-lg-7 col-lg-offset-3 col-xs-offset-1" style="padding-left:1px;">
+				<!--TBN ATF 728x90 pos 1 STARTS-->
+		 <div class="container" id="tbn-95225cb8-4577-5ac4-d242-a41ee97ee484" style="padding-left:10px;">
+			<!-- This is the 728 ad code-->
+			 <script type="text/javascript">window.$tbn = window.$tbn || {"d":function(){}}; $tbn.d("95225cb8-4577-5ac4-d242-a41ee97ee484");</script>
+		</div>
+	<!--TBN ATF 728x90 pos 1 ENDS-->
+	<!-- <div style="display:none; position: relative;">
+	  <iframe style="display:none;"></iframe>
+	  <script type="text/javascript">
+	    var data = {
+	      placementid: '918400028270230_1001884249921807',
+	      format: 'native',
+	      testmode: false,
+	      onAdLoaded: function(element) {
+	        console.log('Audience Network [918400028270230_1001884249921807] ad loaded');
+	        element.style.display = 'block';
+	      },
+	      onAdError: function(errorCode, errorMessage) {
+	        console.log('Audience Network [918400028270230_1001884249921807] error (' + errorCode + ') ' + errorMessage);
+	      }
+	    };
+	    (function(w,l,d,t){var a=t();var b=d.currentScript||(function(){var c=d.getElementsByTagName('script');return c[c.length-1];})();var e=b.parentElement;e.dataset.placementid=data.placementid;var f=function(v){try{return v.document.referrer;}catch(e){}return'';};var g=function(h){var i=h.indexOf('/',h.indexOf('://')+3);if(i===-1){return h;}return h.substring(0,i);};var j=[l.href];var k=false;var m=false;if(w!==w.parent){var n;var o=w;while(o!==n){var h;try{m=m||(o.$sf&&o.$sf.ext);h=o.location.href;}catch(e){k=true;}j.push(h||f(n));n=o;o=o.parent;}}var p=l.ancestorOrigins;if(p){if(p.length>0){data.domain=p[p.length-1];}else{data.domain=g(j[j.length-1]);}}data.url=j[j.length-1];data.channel=g(j[0]);data.width=screen.width;data.height=screen.height;data.pixelratio=w.devicePixelRatio;data.placementindex=w.ADNW&&w.ADNW.Ads?w.ADNW.Ads.length:0;data.crossdomain=k;data.safeframe=!!m;var q={};q.iframe=e.firstElementChild;var r='https://www.facebook.com/audiencenetwork/web/?sdk=5.3';for(var s in data){q[s]=data[s];if(typeof(data[s])!=='function'){r+='&'+s+'='+encodeURIComponent(data[s]);}}q.iframe.src=r;q.tagJsInitTime=a;q.rootElement=e;q.events=[];w.addEventListener('message',function(u){if(u.source!==q.iframe.contentWindow){return;}u.data.receivedTimestamp=t();if(this.sdkEventHandler){this.sdkEventHandler(u.data);}else{this.events.push(u.data);}}.bind(q),false);q.tagJsIframeAppendedTime=t();w.ADNW=w.ADNW||{};w.ADNW.Ads=w.ADNW.Ads||[];w.ADNW.Ads.push(q);w.ADNW.init&&w.ADNW.init(q);})(window,location,document,Date.now||function(){return+new Date;});
+	  </script>
+	  <script type="text/javascript" src="https://connect.facebook.net/en_US/fbadnw.js" async></script>
+	  <style>
+	   .thirdPartyRoot {
+	        background-color: white;
+	        color: #444;
+	        border: 1px solid #ccc;
+	        border-left: 0;
+	        border-right: 0;
+	        font-family: sans-serif;
+	        font-size: 14px;
+	        line-height: 16px;
+	        width: 320px;
+	        text-align: left;
+	        position: relative;
+	      }
+	      .thirdPartyMediaClass {
+	        width: 320px;
+	        height: 168px;
+	        margin: 12px 0;
+	      }
+	      .thirdPartySubtitleClass {
+	        font-size: 18px;
+	        -webkit-line-clamp: 1;
+	        overflow: hidden;
+	        text-overflow: ellipsis;
+	        display: -webkit-box;
+	        height: 16px;
+	        -webkit-box-orient: vertical;
+	      }
+	      .thirdPartyTitleClass {
+	        padding-right: 12px;
+	        line-height: 18px;
+	        -webkit-line-clamp: 2;
+	        overflow: hidden;
+	        text-overflow: ellipsis;
+	        display: -webkit-box;
+	        height: 36px;
+	        -webkit-box-orient: vertical;
+	      }
+	      .thirdPartyCallToActionClass {
+	        background-color: #416BC4;
+	        color: white;
+	        border-radius: 4px;
+	        padding: 6px 20px;
+	        float: right;
+	        text-align: center;
+	        text-transform: uppercase;
+	        font-size: 11px;
+	      }
+	      .fbDefaultNativeAdWrapper {
+	        font-size: 12px;
+	        line-height: 14px;
+	        margin: 12px 0;
+	        height: 36px;
+	        vertical-align: top;
+	      }
+	  </style>
+	  <div class="thirdPartyRoot">
+	  <a class="fbAdLink">
+	    <div class="fbAdMedia thirdPartyMediaClass"></div>
+	    <div class="fbAdSubtitle thirdPartySubtitleClass"></div>
+	    <div class="fbDefaultNativeAdWrapper">
+	      <div class="fbAdCallToAction thirdPartyCallToActionClass"></div>
+	      <div class="fbAdTitle thirdPartyTitleClass"></div>
+	    </div>
+	  </a>
+	</div>
+	</div> -->
+			</div>
+		</div>
     	{{{body}}}
 
 	</section>
 
-			<div class="row">
+
 				{{> footer}}
-			</div>
+
 
 
 
     <!-- end: #wrapper -->
 
-    {{ghost_foot}}
-	<script type="text/javascript">
-	if (typeof jQuery == 'undefined') {
-		document.write('<script type="text/javascript" src="{{asset "js/jquery-1.11.3.min.js"}}"></'+'script>');
-	}
-	</script>
+		{{ghost_foot}}
+
 
 	<script type="text/javascript" src="{{asset "js/jquery-migrate-1.2.1.js"}}"></script>
 
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
-	<script type="text/javascript" src="{{asset "js/jquery.sticky.js"}}"></script>
+
 	<script type="text/javascript" src="{{asset "js/google-code-prettify/prettify.js"}}"></script>
 	<script type="text/javascript" src="{{asset "js/jquery.placeholder.min.js"}}"></script>
 	<script type="text/javascript" src="{{asset "js/jquery.magnific-popup.min.js"}}"></script>
-	<script type="text/javascript" src="{{asset "js/jquery.sticky.js"}}"></script>
+
 	<script type="text/javascript" src="{{asset "js/jflickrfeed.min.js"}}"></script>
 	<script type="text/javascript" src="{{asset "js/tooltipster/jquery.tooltipster.min.js"}}"></script>
-	<script type="text/javascript" src="{{asset "js/jquery.ghostHunter.min.js"}}"></script>
-	<script type="text/javascript" src="{{asset "js/tweecool.min.js"}}"></script>
-	<script type="text/javascript" src="{{asset "js/slick/slick.min.js"}}"></script>
-	<script type="text/javascript" src="{{asset "js/jquery.debounce.js"}}"></script>
-	<script type="text/javascript" src="{{asset "js/twitterFetcher_min.js"}}"></script>
-		<script type="text/javascript" src="{{asset "js/owl.carousel.js"}}"></script>
-    <script type="text/javascript" src="{{asset "js/global.js"}}"></script>
-		<script type="text/javascript" src="{{asset "js/bootstrap.min.js"}}"></script>
-		<script type="text/javascript" src="{{asset "js/moment.min.js"}}"></script>
-		<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-81613698-1', 'auto');
-  ga('send', 'pageview');
 
+
+	<script type="text/javascript" src="{{asset "built/jquery.debounce.min.js"}}"></script>
+
+
+	<script type="text/javascript" src="{{asset "js/bootstrap.min.js"}}"></script>
+	<script type="text/javascript" src="{{asset "js/moment.min.js"}}"></script>
+
+	<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-69160177-1', 'auto');
+		  ga('send', 'pageview');
+
+		</script>
+
+
+
+    <!-- <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script> -->
+
+    <!-- <script type='text/javascript'>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function() {
+    var gads = document.createElement('script');
+    gads.async = true;
+    gads.type = 'text/javascript';
+    var useSSL = 'https:' == document.location.protocol;
+    gads.src = (useSSL ? 'https:' : 'http:') +
+    '//www.googletagservices.com/tag/js/gpt.js';
+    var node = document.getElementsByTagName('script')[0];
+    node.parentNode.insertBefore(gads, node);
+    })();
+    </script> -->
+
+<script type="text/javascript">
+(function() {
+var referer="";try{if(referer=document.referrer,"undefined"==typeof referer)throw"undefined"}catch(exception){referer=document.location.href,(""==referer||"undefined"==typeof referer)&&(referer=document.URL)}referer=referer.substr(0,700);
+var rcel = document.createElement("script");
+rcel.id = 'rc_' + Math.floor(Math.random() * 1000);
+rcel.type = 'text/javascript';
+rcel.src = "http://trends.revcontent.com/serve.js.php?w=392&t="+rcel.id+"&c="+(new Date()).getTime()+"&width="+(window.outerWidth || document.documentElement.clientWidth)+"&referer="+referer;
+rcel.async = true;
+var rcds = document.getElementById("rcjsload_8973ba"); rcds.appendChild(rcel);
+})();
 </script>
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-		<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57981f3cbe60518f"></script>
-
 	<!--[if !IE]><!-->
 	<script type="text/javascript" src="{{asset "js/wow.min.js"}}"></script>
 	<script type="text/javascript">
@@ -145,20 +283,8 @@ node.parentNode.insertBefore(gads, node);
 		}
 	</script>
 	<!--<![endif]-->
-	<script type="text/javascript">
-		/* * * CONFIGURATION VARIABLES * * */
-		var disqus_shortname = theme_config.disqus_shortname;
 
-		/* * * DON'T EDIT BELOW THIS LINE * * */
-		(function () {
-			var s = document.createElement('script'); s.async = true;
-			s.type = 'text/javascript';
-			s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-			(document.getElementsByTagName('BODY')[0]).appendChild(s);
-		}());
-	</script>
-	<script>
-    var max_pages = parseInt('{{pagination.pages}}');
-    </script>
+
+
 </body>
 </html>

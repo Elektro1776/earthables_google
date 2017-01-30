@@ -62,31 +62,33 @@
         // FADE-OUT READ MORE button
         var $el, $p, $ps, $up, totalHeight, articleHeight;
 
-        $(" .fade-out .btn")
+        $(" .fade-1 .btn")
             .click(function() {
 
               totalHeight = 0;
-              articleHeight = $('.fade-out').children().not('.read-more');
+              articleHeight = $('.fade-1').children().not('.read-more');
               $el = $(this);
-              console.log($el);
+              // console.log($el);
               $p = $el.parent();
-              console.log($p);
+              // console.log($p);
               $up = $p.parent();
-              console.log($up);
+              // console.log($up);
               $ps = $up.find(articleHeight);
 
-              // measure how tall inside should be by adding together heights of
+              // measure how tall inside should be by adding together heights
+
               // all inside paragraphs (except read-more paragraph)
               $ps.each(function() { totalHeight += $(this).outerHeight(); });
               // console.log($(this).outerHeight());
               // console.log($ps);
               $up.css({
-                   // Set height to prevent instant jumpdown when max height is
+                   // Set height to prevent instant jumpdown when max height
+                   // is
                    // removed
-                   "height" : $up.height(),
-                   "max-height" : 9999
+                   "height" : "100%",
+                   "max-height" : 200000
                  })
-                  .animate({"height" : totalHeight});
+                  .animate({"height" : "100%"});
 
               // fade out read-more
               $p.fadeOut();
@@ -95,59 +97,85 @@
               return false;
 
             });
+
         // END OF READ MORE BUTTON FADE OUT
         // INFINITE SCROLL
         // How we display the new posts  once the new posts are recieved
 
         function insertPost(postData) {
           var timeago = moment(postData.published_at).startOf('hour').fromNow();
-          // console.log(timeago);
-
+          // start the inserting of the html
           var postInfo =
-              '<article class="post col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom:10px;">\
-                          <a href="' +
-              postData.url + '" class="local thumb hover-effect"><img src="' +
-              postData.image + '"></a>\
-              <h2 class="title"><a href="' +
-              postData.url + '">' + postData.title + '</a></h2>\
-              <div class="meta">\
-              <div class="tags"></div>\
-              <span class="author-meta"><span class="author_meta_by">By </span>' +
-              postData.author.name + '</span>\
-              <timeclass="post-date" datetime="' +
-              timeago + '">  <i class="fa fa-clock-o"></i>' + timeago +
-              '</time>\
-              <div class="row fade-out" style=margin-left:0;>\
-              <div class="text">' +
+              '<div class="meta col-lg-12 col-md-12 col-xs-12">\
+            <a class="local" href="' +
+              postData.url +
+              '"><h1 class="title" id="post_title" style="font-family:Playfair Display;">' +
+              postData.title + '</h1></a>\
+              <div class="fb-like" data-href="https://www.facebook.com/HeartCenteredRebalancing" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>\
+                  <div class="row">';
+
+          postInfo += ' <time class="post-date" datetime="' + timeago +
+                      '">  <i class="fa fa-clock-o"></i>' + timeago + '</time>\
+                                  </div>\
+                                  </div>';
+
+          postInfo += '<div class="main-image cover">\
+                          <img src="' +
+                      postData.image +
+                      '" style="width:100%" height="400" alt=""/>\
+                            <div class="center grid-container">\
+                              <div class="boxed cover" style="background: url("' +
+                      postData.url + '");"></div>\
+                              <div class="boxed overlay"></div>\
+                            </div>\
+                      </div>\
+                      <div class="center content section ">\
+                        <article class="post">\
+                          <section class="post-content" style="margin-bottom:50px;">\
+                          <div class="ad-container col-lg-4 col-xs-12">\
+                          <iframe id="e1d77e5153" name="e1d77e5153" src="//us-ads.openx.net/w/1.0/afr?auid=538147715&cb=INSERT_RANDOM_NUMBER_HERE" frameBorder="0" frameSpacing="0" scrolling="no" width="300" height="250"><a href="//us-ads.openx.net/w/1.0/rc?cs=e1d77e5153&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="//us-ads.openx.net/w/1.0/ai?auid=538147715&cs=e1d77e5153&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe>\
+                          </div>\
+                          '; // Ad
+          // should
+          // go
+          // here
+
+          postInfo +=
+              '<div class="row fade-out" style=margin-left:0;>\
+            <div class="text">' +
               postData.html +
-              '</div><p class="read-more"><a class="btn" href="#">"Read More"</a></p>\
-              <div class="clear"</div\
-              </div>\
-              </article>\
+              '</div><p class="read-more"><a class="btn" href="#">Read More</a></p>\
+            <div class="clear"></div>\
+            </div>\
+                          </section>\
+                        </article>\
+                      </div>\
                           ';
-          // Where we drop our new post data onto the page
-          $('article').last().after(postInfo);
+          // Append the html to the content of the blog
+          //$('article').last().after(postInfo);
+          $(postInfo).appendTo(".loaded_content");
+          // incriment next page so it will get the next page of posts if hit
+          // again.
         }
         // Are we on the post page? if so scroll the bitch
         // TODO figure out how to stop the infinte scroll after 20 articles are
         // loaded
+        var trueContent = false;
         if ($('body').hasClass('post-template')) {
+          var page = 3;
           $(window)
               .scroll(function() {
-                if ($(window).scrollTop() + $(window).height() ==
-                        $(document).height() &&
-                    $('.post').length <= 20) {
-                  $.getJSON(ghost.url.api('posts',
-                                          {
-                                            limit : 4,
-                                            filter : "id:-posts.id",
-                                            include : "author"
-                                          }))
+                if ($window.scrollTop() + $window.height() >=
+                        parseInt($(document).height()) &&
+                    trueContent == false) {
+                  ++page;
+                  $.getJSON(ghost.url.api(
+                                'posts',
+                                {limit : 4, page : page, include : "author"}))
                       .done(function(data) {
-                        // console.log(data);
                         $.each(data.posts,
                                function(i, post) { insertPost(post); });
-                        console.log('posts', data.posts);
+                        // console.log('posts', data.posts);
                       })
                       .fail(function(err) { console.log(err); });
                 }
@@ -240,16 +268,16 @@
 
         /* Global
 
-        */ if ($('body').hasClass('home-template')) {
+        */ /*if ($('body').hasClass('home-template')) {
           if ($(document).width() > 767) {
             $('.menu-wrapper').sticky({zIndex : 1000, height : 1});
           }
-        }
+        }*/
         $('#header div.menu-mobile')
             .click(function() { $('#header')
                                     .toggleClass('menu-open'); });
 
-        $('#header form')
+      /*  $('#header form')
             .submit(function() {
               var search_text = $(this).find('.search-field').val();
               $('#header form .search-field').val(search_text);
@@ -268,8 +296,36 @@
                 }
                 $('#search-results').fadeIn();
               }
-            });
+            });*/
+            /////////
 
+            //////////
+
+  $(function(){
+    var $searchlink = $('#searchtoggl i');
+    var $searchbar  = $('.searchbar');
+
+    $('.searchtoggl').on('click', function(e){
+      e.preventDefault();
+
+      if($(this).attr('id') == 'searchtoggl') {
+        if(!$searchbar.is(":visible")) {
+          // if invisible we switch the icon to appear collapsable
+          $searchlink.removeClass('fa-search').addClass('fa-search-minus');
+        } else {
+          // if visible we switch the icon to appear as a toggle
+          $searchlink.removeClass('fa-search-minus').addClass('fa-search');
+        }
+
+        $searchbar.slideToggle("fast");
+      }
+    });
+
+    $('#searchform').submit(function(e){
+      e.preventDefault(); // stop form submission
+    });
+  });
+              /////////
         $('#back-to-top')
             .click(function(event) {
               event.preventDefault();
@@ -564,7 +620,8 @@
             }
           }*/
 
-        $(window).smartresize(function(e) { wrapper.slick('setPosition'); });
+        //  $(window).smartresize(function(e) { wrapper.slick('setPosition');
+        //  });
       });
 
   /*  var top =

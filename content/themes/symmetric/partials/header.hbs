@@ -1,9 +1,6 @@
-
-
-
 <div class="row">
   <header>
-    <div  class="container-fluid post-nav "style=" " >
+    <div  class="container-fluid post-nav ">
       <nav class="navbar navbar-default navbar-fixed-top"style="z-index:1;padding-top:7px;">
           <div class="container">
 
@@ -16,12 +13,12 @@
                       <span class="icon-bar"></span>
                   </a>
                   <a class="nav_logo" href="{{@blog.url}}">
-                    <div class=" earth_text_sprite" style=" background-image:url({{asset 'images/common.png'}})">
-                   </div>
-                 </a>
-              </div>
+                      <div class=" earth_text_sprite" style=" background-image:url({{asset "images/common.png"}})">
+                     </div>
+                   </a>
+                </div>
             <div class="nav_item_wrapper " style="position:relative;z-index:2;">
-                <ul class=" col-lg-7 masthead__social hidden-sm hidden-xs" >
+                <ul class=" col-lg-7 col-md-7 masthead__social hidden-sm hidden-xs" >
                   <li class="masthead__social-item"><a href="https://www.facebook.com/earthables" class="masthead__social-anchor" target="_blank"><div class="sprite-common-TopBarFB" style="background-image:url({{asset 'images/common.png'}})"></div></a></li>
                   <li class="masthead__social-item"><a href="https://instagram.com/earthables/" class="masthead__social-anchor" target="_blank"><div class="sprite-common-TopBarInst" style="background-image:url({{asset 'images/common.png'}})"></div></a></li>
                   <li class="masthead__social-item"><a href="https://twitter.com/earthables" class="masthead__social-anchor" target="_blank"><div class="sprite-common-TopBarTW" style="background-image:url({{asset 'images/common.png'}})"></div></a></li>
@@ -36,7 +33,7 @@
                     </form>
                   </ul>
               </li>-->
-              <i class="navbar-search fa fa-search" aria-hidden="true"></i>
+              <a href="#" id="searchtoggl" class="searchtoggl"><i class="navbar-search fa fa-search" aria-hidden="true"></i></a>
             </div>
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class=" collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -50,21 +47,20 @@
 
 
       <!-- start scroll-nav for post page -->
-      <span class="overlay " style="position:absoulte;">
+<span class="overlay " style="position:absoulte;">
   <div  class="container-fluid scroll-nav "style="visibility:hidden;background-color:#fff; margin-bottom:50px;" >
     <nav class="navbar navbar-default navbar-fixed-top"style="z-index:1;background:#fff;padding-top:7px;">
-            <div class="container">
+      <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header" style="display: inline-block; position:absolute; z-index:10;">
                 <a type="button" class="navbar-toggle collapsed navbar-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar scroll_icon"></span>
+                    <span class="icon-bar scroll_icon"></span>
+                    <span class="icon-bar scroll_icon"></span>
                 </a>
-
             </div>
-            <div class="addthis_sharing_toolbox addthis_32x32_style col-lg-4 col-xs-8 col-lg-offset-4" style="padding-top:12px;"></div>
+            <div class="addthis_inline_share_toolbox addthis_32x32_style col-lg-4 col-xs-8 col-lg-offset-4 col-xs-offset-2" style="padding-top:12px;padding-left:2px;"></div>
           <div class="nav_item_wrapper " style="position:relative;z-index:2;">
             <i class="navbar-search_scroll fa fa-search" aria-hidden="true"></i>
           </div>
@@ -72,5 +68,6 @@
     </nav>
   </div>
 </span>
+
 </header>
 </div>

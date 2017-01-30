@@ -10,38 +10,31 @@
 
 	<!-- start: .left-content -->
 
-	<div class="row">
-		<div class="col-xs-12 hidden-xs ">
-			<div class="panel panel-default top-ad" style="background-color:#D3D3D3; position: relative;min-height: 100px; margin-bottom: -25px; ">
-				<div class="panel-body" style="background-color:#D3D3D3">
-					<h4 class="text-center">Your Ad Here</h4>
-				</div>
-			</div>
-		</div>
-	</div>
+
 	<div class="section articles  ">
 		{{#foreach posts limit="7" columns="1"}}
 							{{#if @first}}
+							<div class="row">
+
 					<article class=" {{post_class}} mainImg col-lg-8 col-md-8 col-sm-12 col-xs-12" style='padding-top:0px;padding-right:36px;'>
 								<header style="overflow:hidden;">
-										<div class="row">
 										{{#if image}}
-												<a href="{{url}}" class="thumb ">
+										<a href="{{url}}" class="thumb hover-effect">
 														<div class="col-lg-12 col-md-12 col-sm-12 featured-img-size"
 																 style="background:url({{image}}); background-size:cover; background-repeat: no-repeat; position:static;">
-																<div style="position: relative; top: 70%;">
-																		<span id="overlay_text" class="" style="position: relative; top: 220px;right:600px; z-index: 3;">
-																				<h1 class="title" style="line-height:1.2;padding:2px;"><a class="no_hover_effect" href="{{url}}">{{{title}}}</a></h1>
-																		</span>
-																</div>
+																 <div style="position: relative; top: 50%;">
+																	 <span id="overlay_text" class="" style="position: relative; z-index: 3;">
+																		 <h1 class="title" style="line-height:1.2;padding:2px;color:#fff">{{{title}}}</h1>
+																	 </span>
+																 </div>
 														</div>
-												</a>
+													</a>
 										{{else}}
 												{{content words="0"}}
 										{{/if}}
-										</div>
 								</header>
 						</article>
+
 						<div class="col-lg-4  col-md-4 col-sm-12 col-xs-12"style="background-color:#129345;background-size:cover;">
 								<div id="subscribe" class=" " >
 											{{#if @labs.subscribers}}
@@ -59,26 +52,19 @@
 											{{/if}}
 								</div>
 						</div>
-					<div class="fb-page top-spacer" data-href="https://www.facebook.com/earthables/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/earthables/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/earthables/">Earthables</a></blockquote></div>
-										<!--	<div class="col-lg-6 col-md-6  ">
-													<span id="overlay_text" class="" style="position: relative; top: 220px;right:600px; z-index: 3;">
-															<h1 class="title" style="line-height:36px;"><a href="{{url}}"  style="color:#fff; ">{{{title}}}</a></h1>
-													</span>
-											</div>-->
+					<div class="fb-page col-lg-4 col-md-4 col-xs-12 top-spacer" data-href="https://www.facebook.com/earthables/" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="false"><blockquote cite="https://www.facebook.com/earthables/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/earthables/">Earthables</a></blockquote></div>
+					{{> earth_print}}
 
-
+				</div>
 				<div class="col-md-8 " style="margin-top:50px;">
+
 							{{else}}
-				<article class=" {{post_class}} {{#if @rowStart}} {{/if}} {{#if @rowEnd}}  {{/if}}" style="height:auto;">
+				<article class=" {{post_class}} {{#if @rowStart}} {{/if}} {{#if @rowEnd}}  {{/if}}" style="height:auto;margin-top:50px;">
 					<header>
 						{{#if image}}
 							<a href="{{url}}" class="thumb hover-effect">
-
-
-									<div class="" style=" padding-bottom:64.5%;background:url({{image}}); background-size:cover; background-repeat: no-repeat;">
-
+								<div class="" style=" padding-bottom:64.5%;background:url({{image}}); background-size:cover; background-repeat: no-repeat;">
 									</div>
-
 							</a>
 						{{else}}
 							{{content words="0"}}

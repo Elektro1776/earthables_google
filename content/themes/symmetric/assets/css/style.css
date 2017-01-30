@@ -81,7 +81,7 @@ h5{ font-size: 13px; }
 h6{ font-size: 11px; }
 .title{ font-family: 'Roboto Condensed'; font-weight: bold; line-height: 1.2; }
 .title.bordered{
-	border-left: 5px solid  #db2bcc;
+	border-left: 5px solid  #129345;
 	padding-left: 10px;
 }
 h1.title{ font-size: 48px; line-height: 56px; margin:-10p 0 20px; font-weight: 700;}
@@ -230,8 +230,7 @@ body.cover #single div.main-image .boxed.cover{
 }
 
 /* Top page Loader */
-/* add this button styling */
-#atstbx .at-share-btn span{border-radius:25px;}
+
 /*Follow Button and Icons Styling*/
 /* Hover DropDown social icons ---------------------------------------------------------*/
 /* Dropdown Button */
@@ -283,7 +282,10 @@ border-radius:25px;
 	 text-decoration: none;
 
 }
+.post-content .text{
 
+	margin-top:20px;
+}
 /* Change color of dropdown links on hover */
 
 .dropdown-menu li a:hover {
@@ -360,7 +362,9 @@ position:absolute;
 	.mobile {
 		display: none;
 	}
-
+.fb-like{
+	float:right;
+}
 @media screen and (max-width: 960px) {
 
 	.social-button {
@@ -403,24 +407,34 @@ position:absolute;
 /* Fade and Read more button on post page*/
 .post-template .fade-out{
 	max-height: 444px;
+	padding-top:10px;
 position: relative;
 overflow-y: hidden;
 width:100%;
 
 }
-.post-template .read-more{
-position: absolute;
-bottom: 0;
-left: 0;
-width: 100%;
-text-align: center;
-margin: 0; padding: 30px 0;
-/*padding-right:79px;*/
+.post-template .fade-1{
+	max-height: 444px;
+position: relative;
+overflow-y: hidden;
+width:100%;
 
-/* "transparent" only works here because == rgba(0,0,0,0) */
-background-image: linear-gradient(to bottom, transparent, #fff);
 }
 
+.post-template .read-more {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 120px 0;
+    background-image: linear-gradient(to bottom, transparent, #fff);
+}
+.post-template .read-more .btn {
+    position: relative;
+    top: 120px;
+}
 
 /*End Fade and Read more styling*/
 
@@ -485,8 +499,8 @@ div.tags a:hover{
 
 /* Global post date */
 
-article time, div.meta time{ display: inline-block; font-size: 12px; color: #888; font-family: 'Roboto Condensed'; font-weight: bold; text-transform: uppercase; vertical-align: middle; }
-article time .fa, div.meta time{ margin-right: 3px; }
+article time, div.meta time{ display: inline-block; font-size: 18px; color: #888; font-family: 'Roboto Condensed'; font-weight: bold; text-transform: uppercase; vertical-align: middle; }
+article time .fa, div.meta time{ font-size: 18px;margin-right: 3px; }
 div.meta time{ margin-bottom: 5px; }
 div.meta a.comments{ font-size: 10px; color: #888; }
 div.meta a.comments:hover{ color: #000; }
@@ -763,6 +777,7 @@ div.gallery a:hover:before, section.widget_ep_flickr ul li a:hover:before{
 	-webkit-opacity: 1;
 	opacity: 1;
 }
+.scroll-nav nav{ height:76px;}
 
 /* Sticky Header */
 
@@ -958,7 +973,7 @@ div.articles article.default div.meta{ margin-top: 0; }
 	margin-bottom: 30px;
 		font-size: 44px;
     font-weight: bold;
-    line-height: 1.1;
+    line-height: 1.5;
     color: #222222;
      margin-bottom: 15px;
  }
@@ -967,9 +982,9 @@ div.articles article.default div.meta{ margin-top: 0; }
 
 
 .meta-block {
-	padding-bottom: 20px;
+	/*padding-bottom: 20px;*/
 	margin: 0;
-	margin-bottom: 25px;
+	/*margin-bottom: 25px;*/
 	border-bottom: 1px solid #c0c0c0;
 }
 
@@ -994,26 +1009,36 @@ div.articles article.default div.meta{ margin-top: 0; }
 .at-share-btn-elements a {
 	border-radius: 40px !important;
 }
-
-.at-share-btn-elements .at-svc-facebook {
-	width: 210px !important;
-	position: relative;
-}
+/* add this button styling */
+#atstbx .at-share-btn span{border-radius:25px;}
+#atstbx .at-share-btn-elements .at-svc-email{display:none!important;}
+#atstbx .at-share-btn-elements .at-svc-twitter{display:none!important;}
+#atstbx .at-share-btn-elements .at-svc-compact{display:none!important;}
+#atstbx .at-share-btn-elements .at-svc-pinterest_share{display:none!important;}
+#atstbx .at-share-btn-elements .at-svc-facebook {width: 100% !important;position: relative;padding:0!important;}
+#atstbx .at-share-btn-elements .at-icon-wrapper .at-icon-facebook {height:44px!important;width:44px!important;}
+#atstbx .at-share-btn-elements .at-icon-wrapper {margin-right:80px;height:40px!important;}
+#atstbx2 .at-share-btn-elements .at-svc-facebook {width: 210px !important;position: relative;}
 
 .at-share-btn-elements .at-svc-facebook:after {
 	position: absolute;
-	content: "Share this story";
-	font-size: 15px;
+	content: "Share this!";
+	font-size: 20px;
 	top: 50%;
 	color: #ffffff;
 	font-weight: 500;
 	text-transform: uppercase;
 }
-
+.navbar-default .navbar-toggle .scroll_icon{
+	background-color:black!important;
+}
+/*.scroll-nav .navbar-toggle{display:block;}*/
+.text{overflow:hidden;}
+.tag-template .text{overflow:visible;}
 .text p {
 		font-size: 17px;
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 @media only screen and (min-width: 768px){
@@ -1377,7 +1402,7 @@ section.tweets div.slick .slick-next{ right: 20px; }
 
 /* @group Author Box */
 .author{font-size:12px;color:#1A1A1A;font-family:PT Sans Narrow; font-weight: 700;}
-.meta i {font-size: 20px;color: #1A1A1A ;}
+.meta i {font-size: 20px;color: #1A1A1A ;padding-right:5px;}
 section.author{ padding: 40px 0; border-bottom: 1px solid #ccc; }
 section.author h3.title{ margin-bottom: 20px; }
 section.author div.avatar{ padding-left: 0; }
@@ -1438,7 +1463,10 @@ div.author-info div.social a i.fa{ margin-right: 3px; }
 /* @end */
 
 /* @group Footer */
-
+.footer-ad{position: fixed;
+    bottom: -1px;
+    width: 100%;
+    z-index: 100;}
 #footer{ background: #000; margin-top: 70px; color: #fff; border-top: 3px solid #FCD665; padding: 15px 0; position: relative; }
 #footer .grid-container{ position: relative; }
 #footer div.copyright{ position: absolute; left: 0; top: 47%; }
@@ -1459,3 +1487,14 @@ div.author-info div.social a i.fa{ margin-right: 3px; }
 /*Menu-Header*/
 #menu-header > li > a{font-size:16px;font-weight: 500;font-family: Roboto,sans-serif}
 /*@end*/
+.sprite-2 {
+    background-image: url(../images/spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-earthprints {
+    width: 206px;
+    height: 50px;
+    background-position: -5px -5px;
+}
