@@ -1,0 +1,38 @@
+{{!< default}}
+<style>
+#results{
+  margin-left:20px;
+}
+</style>
+<h2 id="results" class="title bordered uppercase">{{count}} Results for: {{query}}</h2>
+{{#foreach posts}}
+<div class="col-lg-8 col-md-8 col-xs-12">
+
+<article class=" {{post_class}} {{#if @rowStart}} {{/if}} {{#if @rowEnd}}  {{/if}}" style="height:auto;margin-top:50px;">
+  <header>
+    <div class="meta">
+      <div class="alignleft">
+
+        <h2 class="title" ><a href="http://earthables.com/{{{slug}}}">{{{title}}}</a></h2>
+        </div>
+      <div class="clear"></div>
+    </div>
+    {{#if image}}
+    <!--  <a href="{{url}}" class="thumb hover-effect">
+        <div class="" style=" padding-bottom:64.5%;background:url({{image}}); background-size:cover; background-repeat: no-repeat;">
+          </div>
+      </a>-->
+    {{else}}
+      {{content words="0"}}
+    {{/if}}
+    <div class="text">
+      {{excerpt words="50"}}
+    </div>
+<div class="clear"></div>
+
+
+  </header>
+</article>
+
+</div>
+  {{/foreach}}

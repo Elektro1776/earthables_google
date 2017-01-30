@@ -85,10 +85,10 @@
                    // Set height to prevent instant jumpdown when max height
                    // is
                    // removed
-                   "height" : $up.height(),
-                   "max-height" : 9999
+                   "height" : "100%",
+                   "max-height" : 200000
                  })
-                  .animate({"height" : totalHeight});
+                  .animate({"height" : "100%"});
 
               // fade out read-more
               $p.fadeOut();
@@ -268,16 +268,16 @@
 
         /* Global
 
-        */ if ($('body').hasClass('home-template')) {
+        */ /*if ($('body').hasClass('home-template')) {
           if ($(document).width() > 767) {
             $('.menu-wrapper').sticky({zIndex : 1000, height : 1});
           }
-        }
+        }*/
         $('#header div.menu-mobile')
             .click(function() { $('#header')
                                     .toggleClass('menu-open'); });
 
-        $('#header form')
+      /*  $('#header form')
             .submit(function() {
               var search_text = $(this).find('.search-field').val();
               $('#header form .search-field').val(search_text);
@@ -296,8 +296,36 @@
                 }
                 $('#search-results').fadeIn();
               }
-            });
+            });*/
+            /////////
 
+            //////////
+
+  $(function(){
+    var $searchlink = $('#searchtoggl i');
+    var $searchbar  = $('.searchbar');
+
+    $('.searchtoggl').on('click', function(e){
+      e.preventDefault();
+
+      if($(this).attr('id') == 'searchtoggl') {
+        if(!$searchbar.is(":visible")) {
+          // if invisible we switch the icon to appear collapsable
+          $searchlink.removeClass('fa-search').addClass('fa-search-minus');
+        } else {
+          // if visible we switch the icon to appear as a toggle
+          $searchlink.removeClass('fa-search-minus').addClass('fa-search');
+        }
+
+        $searchbar.slideToggle("fast");
+      }
+    });
+
+    $('#searchform').submit(function(e){
+      e.preventDefault(); // stop form submission
+    });
+  });
+              /////////
         $('#back-to-top')
             .click(function(event) {
               event.preventDefault();

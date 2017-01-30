@@ -51,7 +51,7 @@
 .earth_text_sprite{margin-left:50px!important;}
 }
 @media screen and (max-width:400px){
-.mainImg{padding-right:15px!important;}
+.mainImg{padding-right:15px!important;padding-bottom:30px!important;}
  .earth_text_sprite{margin-left:45px!important;}
 #atstbx .at-share-btn-elements .at-svc-email{display:none!important;}
 #atstbx .at-share-btn-elements .at-svc-twitter{display:none!important;}
@@ -400,7 +400,7 @@ h1.title{
 			#ad_3 img{display:none}
 			#post_title{font-size:24px!important;line-height:32px!important;}
 			#header{ padding-top: 12px; height:80px; }
-		
+
 				.col-xs-6{width:50%;}
 				#atstbx2 .at-share-btn-elements .at-svc-facebook {
     width: 175px !important;

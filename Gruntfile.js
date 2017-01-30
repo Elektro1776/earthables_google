@@ -262,6 +262,38 @@ var _ = require('lodash'), chalk = require('chalk'), fs = require('fs-extra'),
             options : {sourceMap : false},
             files :
                 {'core/shared/ghost-url.min.js' : 'core/shared/ghost-url.js'}
+          },
+          content : {
+            options : {sourcMap : true},
+            files : [
+              {
+                expand : true,
+                cwd : 'content/themes/symmetric/assets/js',
+                src : [ '**.js','**.**.js','**.*.js' ],
+                dest : 'content/themes/symmetric/assets/built/',
+                ext : '.min.js'
+              }
+            ]
+          }
+        },
+        concat : {
+          scripts : {
+            src : [ 'content/themes/symmetric/assets/**/*.js' ],
+            dest : 'content/themes/symmetric/assets/min_concat.js'
+          }
+        },
+        cssmin : {
+
+          target : {
+            files : [
+              {
+                expand : true,
+                cwd : 'content/themes/symmetric/assets/js/tooltipster/css',
+                src : [ '*.css', '!*.min' ],
+                dest : 'content/themes/symmetric/assets/built/css',
+                ext : '.min.css'
+              }
+            ]
           }
         },
 
@@ -715,7 +747,12 @@ var _ = require('lodash'), chalk = require('chalk'), fs = require('fs-extra'),
       // running Ghost in the `production` env.
       grunt.registerTask('prod', 'Build JS & templates for production',
                          [ 'subgrunt:prod', 'uglify:prod', 'master-warn' ]);
-
+      grunt.registerTask('minijs', [
+                         'uglify:content',
+                       ]);
+      grunt.registerTask('minicss', [
+                                          'cssmin',
+                                        ]);
       // ### Live reload
       // `grunt dev` - build assets on the fly whilst developing
       //
